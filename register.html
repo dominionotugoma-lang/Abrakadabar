@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration | ABRAKADABAR</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .registration-wrapper {
+      min-height: 100vh;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .registration-card {
+      width: 100%;
+      max-width: 650px;
+      padding: 35px;
+      border: 1px solid rgba(192,132,252,.35);
+      border-radius: 20px;
+      background: rgba(15,11,29,.94);
+      box-shadow: 0 0 45px rgba(168,85,247,.12);
+      backdrop-filter: blur(15px);
+    }
+
+    .registration-card h1 {
+      margin: 15px 0 10px;
+      font-size: clamp(28px,5vw,40px);
+    }
+
+    .registration-card > p {
+      color: #aaa2bf;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .registration-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      color: #e9d5ff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid rgba(192,132,252,.25);
+      border-radius: 8px;
+      outline: none;
+      background: #100c1e;
+      color: white;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #67e8f9;
+      box-shadow: 0 0 12px rgba(103,232,249,.1);
+    }
+
+    .form-group select option {
+      background: #100c1e;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    .register-submit {
+      width: 100%;
+      margin-top: 24px;
+      border: 2px solid #67e8f9;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .form-message {
+      display: none;
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #67e8f9;
+      font-size: 13px;
+    }
+
+    .form-note {
+      margin-top: 15px;
+      color: #9288a9;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .registration-wrapper { padding: 25px 14px; }
+      .registration-card { padding: 23px 18px; }
+      .registration-grid { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="space-background" aria-hidden="true">
+    <div class="stars"></div>
+    <div id="shooting-stars"></div>
+    <div class="nebula nebula-one"></div>
+    <div class="nebula nebula-two"></div>
+  </div>
+
+  <main class="registration-wrapper">
+    <section class="registration-card">
+      <a href="index.html" class="back-home">← Back to Home</a>
+
+      <div class="eyebrow">ABRAKADABAR / STUDENT PORTAL</div>
+      <h1>Student <span class="gradient-text">Registration.</span></h1>
+      <p>Complete the form below to submit your student registration details.</p>
+
+      <form id="student-form">
+        <div class="registration-grid">
+
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input id="firstName" name="firstName"
+              autocomplete="given-name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input id="lastName" name="lastName"
+              autocomplete="family-name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username *</label>
+            <input id="username" name="username"
+              autocomplete="username" minlength="3" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email"
+              autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dob">Date of Birth *</label>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option value="">Select an option</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="prefer-not-to-say">Prefer not to say</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="className">Class *</label>
+            <select id="className" name="className" required>
+              <option value="">Select your class</option>
+              <option>JSS 1</option>
+              <option>JSS 2</option>
+              <option>JSS 3</option>
+              <option>SS 1</option>
+              <option>SS 2</option>
+              <option>SS 3</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone"
+              autocomplete="tel">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="address">Home Address</label>
+            <textarea id="address" name="address"
+              autocomplete="street-address"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password *</label>
+            <input type="password" id="password" name="password"
+              autocomplete="new-password" minlength="8" required>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password *</label>
+            <input type="password" id="confirmPassword"
+              name="confirmPassword" autocomplete="new-password"
+              minlength="8" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label>
+              <input type="checkbox" id="terms" required>
+              I confirm that the information provided is correct.
+            </label>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary register-submit">
+          Create Student Account ↗
+        </button>
+
+        <div id="form-message" class="form-message" role="status"
+          aria-live="polite"></div>
+
+        <p class="form-note">
+          This is a demonstration registration page. Connect a secure
+          backend and database before collecting real student information.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    const studentForm = document.getElementById("student-form");
+    const message = document.getElementById("form-message");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const dob = document.getElementById("dob");
+
+    const mailer = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.dominion_otugoma,
+    pass: process.env.waterbywater
+  }
+});
+    // Prevent selecting a future birth date.
+    dob.max = new Date().toISOString().split("T")[0];
+
+    studentForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      message.style.display = "block";
+
+      if (password.value !== confirmPassword.value) {
+        message.style.background = "#451a2d";
+        message.style.color = "#fecdd3";
+        message.textContent = "Your passwords do not match.";
+        confirmPassword.focus();
+        return;
+      }
+
+      message.style.background = "#102b27";
+      message.style.color = "#a7f3d0";
+      message.textContent =
+        "Form validated successfully! This demo does not yet create or save an account. A backend is needed to complete registration.";
+    });
+    students.push(student);
+await saveStudents(students);
+try {
+  await mailer.sendMail({
+    from: process.env.dominion_otugoma,
+    to: process.env.ADMIN_EMAIL,
+    subject: "New ABRAKADABAR Student Registration",
+    text: [
+      "A new student has registered.",
+      "",
+      `Name: ${student.firstName} ${student.lastName}`,
+      `Username: ${student.username}`,
+      `Email: ${student.email}`,
+      `Class: ${student.className}`,
+      `Registration date: ${student.createdAt}`
+    ].join("\n")
+  });
+
+  console.log("Registration notification email sent.");
+} catch (emailError) {
+  console.error("Email notification failed:", emailError.message);
+}
+  </script>
+</body>
+</html>
